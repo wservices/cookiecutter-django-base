@@ -12,6 +12,8 @@
     "year": "2017",
     "version": "0.0.1",
     "websitedomains": ["*"],
+    "websitedomains_str": "*",
+    "site_domain": "example.com",
     "db_url": "",
     "open_source_license": ["MIT", "BSD", "GPLv3", "Apache Software License 2.0", "Not open source"],
     "vcs": ["git", "hg"],
