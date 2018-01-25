@@ -28,10 +28,18 @@ SECURE_SSL_REDIRECT = env.bool('DJANGO_SECURE_SSL_REDIRECT', default=False)
 CSRF_COOKIE_HTTPONLY = True
 #X_FRAME_OPTIONS = 'DENY'
 
+# Disable DEBUG mode
+DEBUG = False
+if 'TEMPLATES' in locals():
+    for num,t in enumerate(TEMPLATES):
+        if type(t.get('OPTIONS')) is dict:
+            TEMPLATES[num]['OPTIONS']['debug'] = DEBUG
+
+
 # SITE CONFIGURATION
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
-# See https://docs.djangoproject.com/en/1.6/ref/settings/#allowed-hosts
+# See https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['*'])
 # END SITE CONFIGURATION
 
