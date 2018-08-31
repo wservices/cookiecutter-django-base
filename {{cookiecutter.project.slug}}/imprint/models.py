@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Ownership(models.Model):
-    site = models.OneToOneField(Site, primary_key=True)
+    site = models.OneToOneField(Site, on_delete=models.CASCADE, primary_key=True)
 
     company_name = models.CharField(_('Company name'), max_length=50, blank=True, null=True)
     company_department = models.CharField(_('Company department'), max_length=50, blank=True)
@@ -49,7 +49,7 @@ class Ownership(models.Model):
 
 
 class BankAccount(models.Model):
-    owner = models.ForeignKey(Ownership, related_name='bankaccounts')
+    owner = models.ForeignKey(Ownership, on_delete=models.CASCADE, related_name='bankaccounts')
     name = models.CharField(_('Name'), max_length=100)
 
     street = models.CharField(_('Street'), max_length=100)
