@@ -61,16 +61,9 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-{% if cookiecutter.cms == 'y' %}MIDDLEWARE += [
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
-]
-{% endif %}
 
 # DEBUG
 # ------------------------------------------------------------------------------
@@ -182,9 +175,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                {% if cookiecutter.cms == 'y' %}'cms.context_processors.cms_settings',
-                'sekizai.context_processors.sekizai',
-                {% endif %}#'dproject.context_processors.site_processor',
+                #'dproject.context_processors.site_processor',
             ],
             #'libraries': {
             #    'sorl_thumbnail': 'sorl.thumbnail.templatetags.thumbnail',
@@ -192,9 +183,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# See: http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -251,76 +239,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# AUTHENTICATION CONFIGURATION
-# ------------------------------------------------------------------------------
-#AUTHENTICATION_BACKENDS = (
-#    'django.contrib.auth.backends.ModelBackend',
-#    'allauth.account.auth_backends.AuthenticationBackend',
-#)
-
-# Some really nice defaults
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-#ACCOUNT_ADAPTER = 'dproject.users.adapters.AccountAdapter'
-#SOCIALACCOUNT_ADAPTER = 'dproject.users.adapters.SocialAccountAdapter'
-
 # Custom user app defaults
 # Select the correct user model
-#AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/'
-
-# SLUGLIFIER
-AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
-
-# CMS pre configuration
-# ------------------------------------------------------------------------------
-CMS_TEMPLATES = [
-    ('base.html', 'Base template'),
-]
-
-CMS_PERMISSION = True
-
-CMSPLUGIN_CASCADE_PLUGINS = ('cmsplugin_cascade.bootstrap3', 'cmsplugin_cascade.link')
-
-CMS_PLACEHOLDER_CONF = {
-    'content': {
-        'parent_classes': {'BootstrapContainerPlugin': None,},
-    },
-}
-
-CMS_PLACEHOLDER_CONF = {
-    'plugins': ['BootstrapContainerPlugin'],
-    'text_only_plugins': ['TextLinkPlugin'],
-    'parent_classes': {'BootstrapContainerPlugin': None},
-    'glossary': {
-        'breakpoints': ['xs', 'sm', 'md', 'lg'],
-        'container_max_widths': {'xs': 750, 'sm': 750, 'md': 970, 'lg': 1170},
-        'fluid': False,
-        'media_queries': {
-            'xs': ['(max-width: 768px)'],
-            'sm': ['(min-width: 768px)', '(max-width: 992px)'],
-            'md': ['(min-width: 992px)', '(max-width: 1200px)'],
-            'lg': ['(min-width: 1200px)'],
-        },
-    },
-}
-
-CMSPLUGIN_CASCADE = {
-    'alien_plugins': ('SnippetPlugin', 'TextPlugin', 'TilePlugin', 'EventPlugin', 'VideoPlayerPlugin'),
-}
-
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
 #THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.pgmagick_engine.Engine' # ZeroDivision error
 THUMBNAIL_HIGH_RESOLUTION = True
 THUMBNAIL_ALTERNATIVE_RESOLUTIONS = [2]
-THUMBNAIL_QUALITY = 100
+THUMBNAIL_QUALITY = 90
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -332,12 +262,5 @@ THUMBNAIL_PROCESSORS = (
 THUMBNAIL_DEBUG = DEBUG
 
 
-PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-    'django.contrib.auth.hashers.SHA1PasswordHasher',
-]
-
+# See: http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

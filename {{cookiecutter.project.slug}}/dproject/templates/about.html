@@ -1,15 +1,12 @@
 {% raw %}{% extends "base.html" %}
-{% load staticfiles i18n %}
+{% load i18n %}
 
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-
-{% block title %}{{ site.name }}{% endblock %}
+{% block title %}{% trans 'Imprint' %}{% endblock %}
 
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-12">
       <h1>{% trans 'Imprint' %}</h1>
       <p>
         {% if site.ownership.company_name %}{{ site.ownership.company_name }}<br />{% endif %}

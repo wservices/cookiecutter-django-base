@@ -1,9 +1,10 @@
 # cookiecutter-django-base
-This is a basic template django project. It will be used for the future Django installer.
+This repository contains a cookiecutter template for a basic Django project which is used by the current djangoeurope one-click-installer.
 
 ## Features
-* Django 1.11.X
-* Works with Python 3.4 and Python 3.5
-* Small example app "imprint"
-* Twitter Bootstrap3
-* Font awesome
+* Django 1.11.X, Django 2.1.X and Django 2.2.X support
+* Works with Python 3.5, Python 3.6 and Python 3.7
+* It includes a small example app "imprint"
+* Twitter Bootstrap4
+* jquery 3.4.0
+* Font awesome 5

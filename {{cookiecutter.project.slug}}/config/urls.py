@@ -8,6 +8,7 @@ from django.views import defaults as default_views
 
 
 urlpatterns = [
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
@@ -29,19 +30,6 @@ if settings.DEBUG:
         urlpatterns = [
             url(r'^__debug__/', include(debug_toolbar.urls)),
         ] + urlpatterns
-
-
-if 'cms' in settings.INSTALLED_APPS:
-    from django.contrib.sitemaps.views import sitemap
-    from cms.sitemaps import CMSSitemap
-    urlpatterns += [
-        url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cmspages': CMSSitemap}}),
-        url(r'^', include('cms.urls')),
-    ]
-else:
-    urlpatterns += [
-        url(r'^$', TemplateView.as_view(template_name='index.html')),
-    ]
 
 if 'imprint' in settings.INSTALLED_APPS:
     from imprint.views import AboutView
