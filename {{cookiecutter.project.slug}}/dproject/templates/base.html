@@ -20,7 +20,7 @@
     {% block css %}{% endblock %}
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">{% endraw %}{{cookiecutter.project.name}}{% raw %}</a>
@@ -49,7 +49,7 @@
             {% if request.user.is_authenticated %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span><i class="fas fa-user" aria-hidden="true"></i>{{ request.user }}</span>
+                  <span><i class="fas fa-user" aria-hidden="true"></i> {{ request.user }}</span>
                   <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdown-user">
@@ -66,7 +66,7 @@
       </div>
     </nav>
 
-    <main role="main" class="content">
+    <main role="main" id="page-content" class="content">
       {% if messages %}
         <div class="container">
           {% for message in messages %}
@@ -79,14 +79,14 @@
       {% endblock content %}
     </main>
 
-    <footer class="footer">
-      <div class="container h-100">
-        <div class="row h-100">
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+      <div class="container">
+        <div class="row">
           <div class="d-flex justify-content-start align-items-center flex-grow-1">
-            <a href="https://djangoeurope.com/">{% trans 'Installed by' %} <b>djangoeurope</b> {% trans 'one click installer' %}</a>
+            <small><a href="https://djangoeurope.com/">{% trans 'Installed by' %} <b>djangoeurope</b> {% trans 'one click installer' %}</a></small>
           </div>
           <div class="d-flex justify-content-end align-items-center">
-            <p class="version">Version {% endraw %}{{cookiecutter.version}}{% raw %}</p>
+            <small>Version {% endraw %}{{cookiecutter.version}}{% raw %}</small>
           </div>
         </div>
       </div>

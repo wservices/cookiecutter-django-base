@@ -2,22 +2,21 @@
 """
 Local settings
 - Run in Debug mode
-
 - Use console backend for emails
-
 - Add Django Debug Toolbar
 - Add django-extensions as app
 """
 
-import socket
-import os
 from .common import *  # noqa
 
 
 # DEBUG
 # ------------------------------------------------------------------------------
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
-TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
+DEBUG = True
+if 'TEMPLATES' in locals():
+    for num,t in enumerate(TEMPLATES):
+        if type(t.get('OPTIONS')) is dict:
+            TEMPLATES[num]['OPTIONS']['debug'] = DEBUG
 
 
 # Mail settings

@@ -8,12 +8,12 @@
             "email": ""
         },
         "settings": {
-            "version": "2.1.x",
+            "version": "2.2.x",
             "secret_key": ""
         }
     },
-    "year": "2018",
-    "version": "0.1.0",
+    "year": "2019",
+    "version": "0.1.1",
     "websitedomains": ["*"],
     "websitedomains_str": "*",
     "site_domain": "example.com",

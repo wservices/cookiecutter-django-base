@@ -1,16 +1,8 @@
+html, body {
+  height: 100%;
+}
 body {
   padding-top: 4.5rem;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #ccc;
-}
-.footer p.version {
-  margin: 0;
-  color: #20AA76;
 }
 a {
   color: #20AA76;
@@ -18,4 +10,16 @@ a {
 a:hover {
   color: #092e20;
   text-decoration: none;
+}
+.cms-toolbar-expanded {
+  height: calc(100vh - 46px);
+}
+.cms-structure-mode-structure {
+  min-height: calc(100vh - 46px);
+}
+.cms-toolbar-expanded .navbar {
+  top: 46px;
+}
+#page-content {
+  flex: 1 0 auto;
 }
