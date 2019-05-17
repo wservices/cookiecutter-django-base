@@ -6,5 +6,5 @@ This repository contains a cookiecutter template for a basic Django project whic
 * Works with Python 3.5, Python 3.6 and Python 3.7
 * It includes a small example app "imprint"
 * Twitter Bootstrap4
-* jquery 3.4.0
+* jquery 3.4.1
 * Font awesome 5
