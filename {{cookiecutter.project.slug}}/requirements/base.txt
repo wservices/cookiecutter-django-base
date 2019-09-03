@@ -1,4 +1,4 @@
-{% if cookiecutter.project.settings.version == '2.2.x' %}django==2.2.4{% elif cookiecutter.project.settings.version == '2.1.x' %}django==2.1.11{% else %}django==1.11.23{% endif %}
+{% if cookiecutter.project.settings.version == '2.2.x' %}django==2.2.5{% elif cookiecutter.project.settings.version == '2.1.x' %}django==2.1.12{% else %}django==1.11.24{% endif %}
 django-crispy-forms==1.7.2
 django-environ==0.4.5
 django-extensions==2.2.1
