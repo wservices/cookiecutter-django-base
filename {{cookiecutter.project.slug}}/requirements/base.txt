@@ -1,5 +1,5 @@
 {% if cookiecutter.project.settings.version == '3.0.x' %}Django==3.0.1{% elif cookiecutter.project.settings.version == '2.2.x' %}django==2.2.9{% elif cookiecutter.project.settings.version == '2.1.x' %}django==2.1.14{% else %}django==1.11.27{% endif %}
-django-crispy-forms==1.7.2
+django-crispy-forms==1.8.1
 django-environ==0.4.5
 django-extensions==2.2.3
 mysqlclient==1.4.4
