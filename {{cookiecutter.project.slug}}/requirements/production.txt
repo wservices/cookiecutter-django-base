@@ -6,7 +6,7 @@
 
 # WSGI Handler
 # ------------------------------------------------
-setuptools==41.2.0
-gevent==1.4.0
-greenlet==0.4.15
-gunicorn==19.9.0
+setuptools==51.3.3
+gevent==21.1.2
+greenlet==1.0.0
+gunicorn==20.0.4
