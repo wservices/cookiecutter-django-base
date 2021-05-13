@@ -40,10 +40,6 @@ class Ownership(models.Model):
             return None
 
     @property
-    def logo_url(self):
-        return 'https://{0}{1}{2}'.format(self.api_domain, settings.MEDIA_URL, self.logo)
-
-    @property
     def server_time(self):
         return timezone.now()
 
