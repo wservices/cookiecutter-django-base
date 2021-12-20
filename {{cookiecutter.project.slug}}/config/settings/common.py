@@ -100,6 +100,8 @@ DATABASES = {
 if DATABASES['default']['ENGINE'] == 'django.db.backends.mysql':
     DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -216,8 +218,8 @@ MEDIA_URL = '/media/'
 # URL Configuration
 # ------------------------------------------------------------------------------
 ROOT_URLCONF = 'config.urls'
-LOGIN_URL = '/login/'
-LOGOUT_URL = '/logout/'
+LOGIN_URL = '/user/login/'
+LOGOUT_URL = '/user/logout/'
 LOGIN_REDIRECT_URL = '/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
