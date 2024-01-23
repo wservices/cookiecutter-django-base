@@ -1,10 +1,10 @@
-{% if cookiecutter.project.settings.version == '4.1.x' %}Django==4.1.5{% elif cookiecutter.project.settings.version == '3.2.x' %}Django==3.2.16{% else %}django==3.2.16{% endif %}
-django-crispy-forms==1.14.0
-django-environ==0.9.0
-django-extensions==3.2.1
-mysqlclient==2.1.1
-Pillow==9.4.0
-psycopg2-binary==2.9.5
-pytz==2022.7.1
-six==1.16.0
-sorl-thumbnail==12.9.0
+{% if cookiecutter.project.settings.version == '5.0.x' %}Django==5.0{% elif cookiecutter.project.settings.version == '4.2.x' %}Django==4.2.8{% else %}django==3.2.32{% endif %}
+django-crispy-forms==2.1
+crispy-bootstrap4==2023.1
+django-environ==0.11.2
+django-extensions==3.2.3
+mysqlclient==2.2.1
+Pillow==10.1.0
+psycopg2-binary==2.9.9
+pytz==2023.3.post1
+sorl-thumbnail==12.10.0
