@@ -85,6 +85,27 @@ def create_repos():
         print('    hg push <repository_address>')
 
 
+def set_global_git_identity():
+    home = os.getenv('HOME')
+    gitconfig = os.path.join(home, '.gitconfig')
+    gitconfig_data = ''
+    try:
+        with open(gitconfig, 'r') as f:
+            gitconfig_data = f.read()
+    except FileNotFoundError:
+        pass
+
+    email = '{{cookiecutter.user.email}}'
+    full_name = '{{cookiecutter.user.first_name}} {{cookiecutter.user.last_name}}'
+
+    if not 'email = ' in gitconfig_data:
+        print(f'git config --global user.email {email}')
+        subprocess.check_call(['git', 'config', '--global', 'user.email', email])
+    if not 'user = ' in gitconfig_data:
+        print(f'git config --global user.name {full_name}')
+        subprocess.check_call(['git', 'config', '--global', 'user.name', full_name])
+
+
 def create_env_file():
     """ move env.example to .env """
     cwd = os.getcwd()
@@ -103,6 +124,9 @@ def main():
     """Do some stuff based on configuration"""
     handle_react()
     create_env_file()
+    repo_type = '{{ cookiecutter.vcs }}'.lower()
+    if repo_type == 'git':
+        set_global_git_identity()
     create_repos()
     #run_migrate()
 
