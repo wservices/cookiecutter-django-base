@@ -101,7 +101,7 @@ def set_global_git_identity():
     if not 'email = ' in gitconfig_data:
         print(f'git config --global user.email {email}')
         subprocess.check_call(['git', 'config', '--global', 'user.email', email])
-    if not 'user = ' in gitconfig_data:
+    if not 'name = ' in gitconfig_data:
         print(f'git config --global user.name {full_name}')
         subprocess.check_call(['git', 'config', '--global', 'user.name', full_name])
 
