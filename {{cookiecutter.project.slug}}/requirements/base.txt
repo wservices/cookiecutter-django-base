@@ -1,8 +1,7 @@
 {% if cookiecutter.project.settings.version == '5.2.x' %}Django==5.2.9{% elif cookiecutter.project.settings.version == '4.2.x' %}Django==4.2.27{% else %}django==4.2.27{% endif %}
-django-crispy-forms==2.1
+django-crispy-forms==2.5
 crispy-bootstrap4==2025.6
 django-environ==0.12.0
-django-extensions==3.2.3
 django-extensions==4.1
 mysqlclient==2.2.7
 Pillow==12.0.0
